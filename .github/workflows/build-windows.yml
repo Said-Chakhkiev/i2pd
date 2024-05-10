@@ -160,7 +160,7 @@ jobs:
       uses: actions/cache@v4
       id: cache-crt
       with:
-        path: MINGW-packages/mingw-w64-headers-git/*.zst
+        path: MINGW-packages/mingw-w64-crt-git/*.zst
         key: winxp-crt-${{ steps.version-crt.outputs.version }}
     - name: Build WinXP-capable crt package
       if: steps.cache-crt.outputs.cache-hit != 'true'
