@@ -125,6 +125,7 @@ jobs:
       with:
         msystem: MINGW32
         install: base-devel git mingw-w64-i686-gcc mingw-w64-i686-boost mingw-w64-i686-openssl mingw-w64-i686-miniupnpc
+        cache: true
         update: true
 
     - name: Clone MinGW packages repository
@@ -209,7 +210,7 @@ jobs:
       run: pacman --noconfirm -U MINGW-packages/mingw-w64-openssl/mingw-w64-i686-*-any.pkg.tar.zst
 
     # Boost
-    - name: Get winpthreads package version
+    - name: Get boost package version
       id:  version-boost
       run: |
         echo "version=$(pacman -Si mingw-w64-i686-boost | grep -Po '^Version\s*: \K.+')" >> $GITHUB_OUTPUT
